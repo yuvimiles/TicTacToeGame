@@ -1,3 +1,7 @@
-<resources>
-    <string name="app_name">TicTacToeGame</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Tic Tac Toe</string>
+    <string name="game_title">Tic Tac Toe</string>
+    <string name="empty_game_cell">Empty game cell</string>
+    <string name="play_again">Play Again</string>
+    <string name="play_again_button">Play Again Button</string>
 </resources>
