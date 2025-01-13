@@ -15,7 +15,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // מקשר בין הכפתורים בתצוגה
         val buttons = arrayOf(
             findViewById<Button>(R.id.button0),
             findViewById<Button>(R.id.button1),
@@ -31,7 +30,6 @@ class MainActivity : AppCompatActivity() {
         val statusTextView = findViewById<TextView>(R.id.statusTextView)
         val playAgainButton = findViewById<Button>(R.id.playAgainButton)
 
-        // מאזין ללחיצות על הכפתורים
         buttons.forEachIndexed { index, button ->
             button.setOnClickListener {
                 if (button.text.isEmpty() && !gameOver) {
@@ -55,14 +53,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // מאזין ללחיצה על כפתור "Play Again"
         playAgainButton.setOnClickListener {
             resetGame(buttons, statusTextView)
         }
     }
 
     private fun checkWin(): Boolean {
-        // בדיקת שורות, עמודות ואלכסונים
         for (i in 0..2) {
             if (board[i][0] == currentPlayer && board[i][1] == currentPlayer && board[i][2] == currentPlayer) return true
             if (board[0][i] == currentPlayer && board[1][i] == currentPlayer && board[2][i] == currentPlayer) return true
@@ -73,12 +69,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun isDraw(): Boolean {
-        // בדיקה אם כל התאים מלאים
         return board.all { row -> row.all { it != null } }
     }
 
     private fun resetGame(buttons: Array<Button>, statusTextView: TextView) {
-        // איפוס הלוח והכפתורים
         board.forEach { row -> row.fill(null) }
         buttons.forEach { it.text = "" }
         currentPlayer = "X"
